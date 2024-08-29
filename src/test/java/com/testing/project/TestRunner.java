@@ -36,7 +36,7 @@ public class TestRunner {
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
-		driver.get("https://www.google.com.mx");
+		driver.get("http://www.iztapalapa.uam.mx/");
 
 	}
 
@@ -50,16 +50,16 @@ public class TestRunner {
 
 		WebElement searchBox = driver.findElement(By.name("q"));
 
-		searchBox.clear();
-		searchBox.sendKeys("GitHub");
-		searchBox.submit();
+//		searchBox.clear();
+//		searchBox.sendKeys("GitHub");
+//		searchBox.submit();
 
 		// Wait for the page title to update
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(driver -> driver.getTitle().toLowerCase().startsWith("github"));
+		wait.until(driver -> driver.getTitle().toLowerCase().startsWith("uam"));
 
 		// Verify that the title page is as expected
-		assertEquals("GitHub - Buscar con Google", driver.getTitle());
+		assertEquals("UAM-Iztapalapa", driver.getTitle());
 
 		try {
 			Thread.sleep(5000);
